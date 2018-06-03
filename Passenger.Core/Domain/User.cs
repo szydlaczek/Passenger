@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Passenger.Core.Domain
 {
@@ -13,13 +11,15 @@ namespace Passenger.Core.Domain
         public string UserName { get; protected set; }
         public string FullName { get; protected set; }
         public DateTime CreatedAt { get; protected set; }
+
         protected User()
         {
         }
-        public User(string email, string password,  string salt, string username)
+
+        public User(string email, string password, string salt, string username)
         {
             Id = Guid.NewGuid();
-            Email = email;
+            Email = email.ToLowerInvariant();
             Password = password;
             Salt = salt;
             UserName = username;
