@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Passenger.Infrastructure.IOC.Modules
 {
-     public class ServiceModule : Autofac.Module
+    public class ServiceModule : Autofac.Module
     {
         protected override void Load(ContainerBuilder builder)
         {
@@ -18,6 +18,9 @@ namespace Passenger.Infrastructure.IOC.Modules
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
 
+            builder.RegisterType<Encrypter>()
+                .As<IEncrypter>()
+                .SingleInstance();
         }
     }
 }

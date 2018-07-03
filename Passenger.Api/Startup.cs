@@ -10,6 +10,8 @@ using Passenger.Infrastructure.Mappers;
 using Passenger.Infrastructure.Repositories;
 using Passenger.Infrastructure.Services;
 using System;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Passenger.Api
 {
@@ -46,7 +48,11 @@ namespace Passenger.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+            
+            
 
+
+            
             app.UseMvc();
             applicationLifetime.ApplicationStopped.Register(() => ApplicationContainer.Dispose());
         }
