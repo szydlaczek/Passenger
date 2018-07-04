@@ -21,6 +21,9 @@ namespace Passenger.Infrastructure.IOC.Modules
             builder.RegisterType<Encrypter>()
                 .As<IEncrypter>()
                 .SingleInstance();
+            builder.RegisterType<JwtHandler>()
+                .As<IJwtHandler>()
+                .SingleInstance();
         }
     }
 }
